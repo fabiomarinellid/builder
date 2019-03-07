@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Resetar Senha</div>
+      <div class="card-body">
+        <div class="text-center mb-4">
+          <h4>Esqueceu sua senha?</h4>
+          <p>Digite seu e-mail e nós enviaremos as instruções de como resetar sua senha.</p>
+        </div>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  		 <%= render "layouts/shared/error_messages", resource: resource %>
+          <div class="form-group">
+            <div class="form-label-group">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control",  placeholder: "Digite seu e-mail",  required: "required",  autofocus: "autofocus" %>
+              <%= f.label :email %>
+            </div>
+          </div>
+          <%= f.submit "Enviar", class: "btn btn-primary btn-block" %>
+        <% end %>
+        <div class="text-center">
+          <%= render "users/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>

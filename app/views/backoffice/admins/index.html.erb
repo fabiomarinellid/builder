@@ -1,0 +1,79 @@
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <%= link_to backoffice_admins_path do %>
+        <span><%= controller.controller_name %></span>
+    <% end %>
+  </li>
+  <li class="breadcrumb-item active">Listando os <%= controller.controller_name %></li>
+</ol>
+
+<div class="table-responsive">
+	<table class="table table-striped table-bordered table-hover">
+		<tr>
+			<td>
+				<form>
+					<div class="input-group">
+				        <input type="text" class="form-control" placeholder="Procurar por..." aria-label="Search" aria-describedby="basic-addon2">
+				        <div class="input-group-append">
+				          <button class="btn btn-primary" type="button">
+				            <i class="fas fa-search"></i>
+				          </button>
+				        </div>
+				    </div>
+				</form>
+			</td>
+			<td style="width: 150px">
+				<div class="panel-heading">
+	                <%= link_to new_backoffice_admin_path, class:"btn btn-success btn-circle pull-right" do %>
+	                    <i class="fa fa-plus"></i>
+	                <% end %>
+        		</div>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div class="panel-body">
+	<div class="table-responsive">
+	    <table class="table table-striped table-bordered table-hover">
+	        <thead>
+	            <tr>
+	                <th>Id</th>
+	                <th>Email</th>
+	                <th>Ações</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <% @admins.each do |admin| %>
+	            <tr>
+	                <td><%= admin.id %></td>
+	                <td><%= admin.email %></td>
+	                <td style="width: 150px">
+	                	<div>
+	                		<div>
+			                    <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-primary btn-circle" do %>
+			                        <i class="fa fa-edit"></i>
+			                    <% end %>
+		                	</div>
+		                    <% if (current_user.id != admin.id) %>
+			                    <div>
+			                    	<%= button_to backoffice_admin_path(admin), :method => :delete, class: "btn btn-danger btn-circle", data: {confirm: 'confirma a exclusão?'} do %>  
+			                    	<i class="fa fa-minus"></i>
+			                        <% end %>
+			                    </div>
+		                    <% else %>
+			                    <div>
+			                        <%= button_to '#', disabled: 'disabled', class: "btn btn-danger btn-circle" do %>
+			                            <i class="fa fa-minus"></i>
+			                        <% end %>
+			                    </div>
+			                <% end %>
+	                	</div>
+	                </td>
+	            </tr>
+	            <% end %>
+	        </tbody>
+	    </table>
+	</div>
+</div>

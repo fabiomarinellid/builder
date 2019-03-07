@@ -1,0 +1,48 @@
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <%= link_to backoffice_admins_path do %>
+        <span><%= controller.controller_name %></span>
+    <% end %>
+  </li>
+  <li class="breadcrumb-item active">Cadastrando <%= controller.controller_name %></li>
+</ol>
+
+<% if @admin.errors.any? %>
+    <div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+    <ul>
+        <% @admin.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+
+    </div>
+<% end %>
+
+<div class="panel-body">
+    <div class="col-lg-6">
+        <%= form_for @admin,  url: backoffice_admins_path do |f| %>
+           
+            <div class="form-group">
+                <%= f.label :email %>
+                <%= f.text_field :email, class:"form-control", placeholder:"Email do administrador" %>
+
+            </div>
+            <div class="form-group">
+                <%= f.label :password %>
+                <%= f.password_field :password, class:"form-control", placeholder:"Senha" %>
+            </div>
+            <div class="form-group">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, class:"form-control", placeholder:"Confirmação da senha" %>
+            </div>
+            <%= f.submit "Salvar", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>
+
+
+
+           

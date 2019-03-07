@@ -1,0 +1,46 @@
+<!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="<%= controller.controller_name == "dashboard" ? 'nav-item active' : 'nav-item' %>">
+        <%= link_to backoffice_dashboard_path, class: "nav-link" do %>
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        <% end %>
+      </li>
+      <li class="<%= controller.controller_name == "admins" ? 'nav-item active' : 'nav-item' %>" >
+        <%= link_to backoffice_admins_path, class: "nav-link" do %>
+          <i class="fas fa-fw fa-users"></i>
+          <span>Admins</span>
+        <% end %>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Layouts</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="login.html">Layout de Consultas</a>
+          <a class="dropdown-item" href="register.html">Layout de Relatórios</a>
+          <a class="dropdown-item" href="forgot-password.html">Layout de EDI</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-code"></i>
+          <span>SQL</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Módulos</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Costumer</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Ecosistema</span></a>
+      </li>
+    </ul>

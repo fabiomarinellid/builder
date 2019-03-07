@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Login</div>
+      <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="form-group">
+            <div class="form-label-group">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", 
+              class: "form-control", placeholder: "Email", required: "required" %>
+              <%= f.label :email %><br />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password",  required: "required", type: "password" %>
+              <%= f.label :password %>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <%= f.check_box :remember_me %> Lembrar
+              </label>
+            </div>
+          </div>
+          <%= f.submit "Login", class: "btn btn-primary btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
