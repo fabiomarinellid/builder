@@ -5,7 +5,7 @@ class Backoffice::AdminsController < ApplicationController
   layout "Backoffice"
 
   def index
-    @admins = User.all
+    @admins = User.all.page(params[:page]).per(5)
   end
 
   def new

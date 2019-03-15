@@ -15,6 +15,10 @@ gem 'devise-i18n'
 gem 'bootstrap_sb_admin_base_v1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# BootboxJS
+gem 'rails-assets-bootbox', source: 'https://rails-assets.org'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
+gem 'kaminari'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
@@ -61,6 +65,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  #A library for generating fake data such as names, addresses, and phone numbers.
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :test do
