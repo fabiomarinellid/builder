@@ -8,20 +8,43 @@
   <li class="breadcrumb-item active">Listando os <%= controller.controller_name %></li>
 </ol>
 
+
+<% if (User.count == 1) %>
+
+ <div class="card text-white bg-dark o-hidden h-100">
+	<div class="card-body">
+		<div class="card-body-icon">
+		  <i class="fas fa-fw fa-users-cog"></i>
+		</div>
+		<div class="mr-5">Parece que só tem você de administrador, para cadastar mais administradores, clique no botão
+
+	    <%= link_to new_backoffice_admin_path, class:"btn btn-success btn-circle pull-right" do %>
+	        <i class="fa fa-plus"></i>
+	    <% end %>
+
+	</div>
+	</div>
+ </div>
+
+<% else %>
+
 <div class="table-responsive">
 	<table class="table table-striped table-bordered table-hover">
 		<tr>
 			<td>
-				<form>
+        <form>
 					<div class="input-group">
-				        <input type="text" class="form-control" placeholder="Procurar por..." aria-label="Search" aria-describedby="basic-addon2">
+              <%= text_field_tag(:q, params[:q], { class:"form-control", placeholder: "Procurar por email..." }) %>
+				      <!--  <input type="text" class="form-control" placeholder="Procurar por..." aria-label="Search" aria-describedby="basic-addon2"> -->
 				        <div class="input-group-append">
-				          <button class="btn btn-primary" type="button">
+                  <%= button_tag(class:"btn btn-primary") do %>
+				          <!-- <button class="btn btn-primary" type="button"> -->
 				            <i class="fas fa-search"></i>
-				          </button>
+				          <!-- </button> -->
+                  <% end %>
 				        </div>
 				    </div>
-				</form>
+        </form>
 			</td>
 			<td style="width: 150px">
 				<div class="panel-heading">
@@ -53,7 +76,7 @@
 	                    <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-primary btn-circle" do %>
 	                        <i class="fa fa-edit"></i>
 	                    <% end %>
-                    <% if (current_user.id != admin.id) %>
+                    <% if (current_user.id != admin.id && admin.id != 1) %>
 	                    	<%= link_to backoffice_admin_path(admin), :method => :delete, class: "btn btn-danger btn-circle", data: {confirm: "Confirma a exclusão do admin <b>#{admin.email}</b>?"} do %>
 	                    	<i class="fa fa-minus"></i>
 	                        <% end %>
@@ -65,5 +88,11 @@
 	            <% end %>
 	        </tbody>
 	    </table>
+      <div>
+      <span style="float:left;"><%= paginate @admins %></span>
+      <span style="color:#17a2b8; float:right; margin-top:6px;"><%= @adminsCount.count %> Registro(s)</span>
+      </div>
 	</div>
 </div>
+
+<% end %>

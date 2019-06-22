@@ -6,9 +6,9 @@ namespace :utils do
 
   	puts "Cadastrando os Administadores..."
 
-  	10.times do
-  		User.create!(email: Faker::Internet.email, 
-  					password: "123456", 
+  	100.times do
+  		User.create!(email: Faker::Internet.email,
+  					password: "123456",
   					password_confirmation: "123456")
   	end
 

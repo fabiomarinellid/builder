@@ -5,7 +5,12 @@ class Backoffice::AdminsController < ApplicationController
   layout "Backoffice"
 
   def index
-    @admins = User.all.page(params[:page]).per(5)
+    #Traz todo mundo menos o usuario corrente
+    #@admins = User.all.where("id != ?", current_user.id).page(params[:page]).per(5)
+
+    @admins = User.where("id != ? AND email LIKE ?", current_user.id, "%#{params[:q]}%").page(params[:page]).per(5)
+
+    @adminsCount = User.where("id != ? AND email LIKE ?", current_user.id, "%#{params[:q]}%")
   end
 
   def new
@@ -51,5 +56,5 @@ class Backoffice::AdminsController < ApplicationController
         params.require(:user).permit(:email, :password, :password_confirmation)
     end
 
-   
+
 end

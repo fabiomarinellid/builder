@@ -1,35 +1,39 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
      <%= link_to backoffice_dashboard_path, class: "navbar-brand mr-1" do %>
-        BuilderWeb
+        
+          <%= image_tag("/assets/Icone.png", size: "30x30", :alt => "BuilderWeb", :class => "d-inline-block align-top") %>
+          
+        
      <% end %>
 
-    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+    <!-- <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
     </button>
 
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-      <div class="input-group">
+      <!--<div class="input-group">
         <input type="text" class="form-control" placeholder="Procurar por..." aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button">
             <i class="fas fa-search"></i>
           </button>
         </div>
-      </div>
+      </div> -->
     </form>
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <!-- <span class="badge badge-danger">9+</span> -->
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <div class="dropdown-item"><%= current_user.email %></div>
+          <div class="dropdown-item", style="background-color: white"><%= current_user.email %></div>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Perfil</a>
+          <%= link_to "Perfil", edit_backoffice_admin_path(current_user.id), class: "dropdown-item"%>
           <div class="dropdown-divider"></div>
           <%= link_to "Sair", destroy_user_session_path, class: "dropdown-item" %>
         </div>
