@@ -15,8 +15,16 @@ gem 'devise-i18n'
 gem 'bootstrap_sb_admin_base_v1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+source 'https://rails-assets.org' do
 # BootboxJS
-gem 'rails-assets-bootbox', source: 'https://rails-assets.org'
+gem 'rails-assets-bootbox'
+# Bootstrap Notify
+gem 'rails-assets-bootstrap.growl'
+# Animate CSS
+gem 'rails-assets-animate-css'
+end
+
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
 gem 'kaminari'
 # Use mysql as the database for Active Record

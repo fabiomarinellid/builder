@@ -16,6 +16,7 @@
 //= require popper
 //= require bootstrap
 //= require bootstrap_sb_admin_base_v1
+//= require bootstrap.growl
 //= require activestorage
 //= require_tree .
 

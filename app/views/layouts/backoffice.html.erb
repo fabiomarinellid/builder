@@ -15,7 +15,7 @@
     <%= javascript_include_tag 'application' %>
 
     <%= csrf_meta_tags %>
-    
+
   </head>
 
   <body id="page-top">
@@ -26,10 +26,11 @@
 
       <%= render partial: "layouts/shared/sidebar" %>
 
-      <div id="content-wrapper"> 
- 
+      <div id="content-wrapper">
+
         <div class="container-fluid">
           <%= yield %>
+          <%= render partial: "layouts/shared/notification" %>
         </div>
 
         <%= render partial: "layouts/shared/footer" %>
