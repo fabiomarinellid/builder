@@ -23,6 +23,10 @@ gem 'rails-assets-bootbox'
 gem 'rails-assets-bootstrap.growl'
 # Animate CSS
 gem 'rails-assets-animate-css'
+# Bootstrap
+gem 'rails-assets-bootstrap'
+# jqueryui
+gem 'rails-assets-jqueryui'
 end
 
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps

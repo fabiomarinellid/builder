@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jqueryui
 //= require jquery
 //= require jquery_ujs
 //= require bootbox
@@ -21,7 +22,6 @@
 //= require_tree .
 
 /* Sobrescreve  data-confirm do Rails */
-
 $.rails.allowAction = function(element) {
   var message = element.attr('data-confirm');
   if (!message) { return true; }

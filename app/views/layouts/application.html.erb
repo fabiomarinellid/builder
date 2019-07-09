@@ -21,7 +21,10 @@
 
    <%= yield %>
 
-   <%= render partial: "layouts/shared/notification" %>
+   <% if alert %>
+    <%= javascript_tag "$.notify( { message: '#{alert}'}, { type: 'danger',
+   placement: { from: 'down', align: 'center' } } );" %>
+   <% end %>
 
   </body>
 
